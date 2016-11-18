@@ -104,6 +104,8 @@ it('should list items on GET', function(done) {
  			.delete('/items/:id')
  			.end(function(err,res) {
  				should.equal(err,null);
+                res.should.be.json;
+                res.body.should.be.a('object');
  				res.should.have.status(200);//200 = 'succeeded'
  				storage.items.should.have.length(3);
  				done();

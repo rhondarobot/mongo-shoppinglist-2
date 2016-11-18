@@ -85,13 +85,11 @@ app.post('/items', function(req, res) {
 app.put('/items/:id', function(req, res) {
 	Item.findOneAndUpdate({_id:req.params.id}, {name: req.body.name}, function(err, item) {
 		if(err) {
-			console.error('Could not update shopping list!', item);
-			mongoose.disconnect();
+			res.send(err);
 			return;
 		}
-		console.log('Updated shopping list', item.id);
-		mongoose.disconnect();	
-		res.status(201).json(item);
+		res.json({ message: 'Updated shopping list'});
+		res.status(200).json(item);
 	});
 });	
 
@@ -99,6 +97,11 @@ app.put('/items/:id', function(req, res) {
 //DELETE - DEL
 app.delete('/items/:id', function(req, res) {
 	Item.findOneAndRemove({_id:req.params.id}, function(err, item) {
+		if(err) {
+			console.error('Could not delete item!', item);
+			return;
+		}
+		console.log('Item ',item.id,'successfully deleted!');
 		res.sendStatus(200);
 	});
 });
