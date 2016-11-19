@@ -8,7 +8,7 @@ exports.DATABASE_URL =  /*1*/process.env.DATABASE_URL ||
 	node server.js (complete terminal session)
 */	
 
-						/*2*/global.DATABASE_URL === 'https://mlab.com/databases/mongo-shoppinglist-2' ||
+						/*2*/global.DATABASE_URL ||
 						/*3*/(process.env.NODE_ENV === 'production' ?
 							'mongodb://localhost/shopping-list' :
 							'mongodb://localhost/shopping-list-dev');//default
