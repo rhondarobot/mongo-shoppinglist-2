@@ -89,7 +89,7 @@ app.put('/items/:id', function(req, res) {
 			return;
 		}
 		res.json({ message: 'Updated shopping list'});
-		res.status(200).json(item);
+		res.sendStatus(200);
 	});
 });	
 

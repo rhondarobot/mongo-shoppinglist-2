@@ -1,10 +1,16 @@
 language: node_js
 node_js: node_js
-services:
-  -mongodb
+services: -mongodb
 addons:
-    apt:
-      sources:
-      - mongodb-3.2-precise
-      packages:
-      - mongodb-org-server
+  apt:
+    sources:
+    - mongodb-3.2-precise
+    packages:
+    - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key:
+    secure: eXofSY7CnYc+jzciLVH+uCDVvzcieZ6dct1+I/HJvHvl8w3c+pvS1c0NItUWVpIPfwhnMeC/HG/jyUSsBguQyVwrQ7ActAKcePxbYTPJLE2A+DCM76A8f3XqTo/c0Vl/D3hT+DYNco68ES6Z5+65Iyw9BrUXKGB/5owiKwAnFTxivIszD0E/9QbYixaPuwp7go0XxcI6jhVlRTzJXSn27/5zBITGGmVVwu9Fjx2SUC3R8talPtIaG9YDs5xlpHWV3BxwDkDA9F7XZTogsUv4BUc+mHu2WcRCszz+qtFozYKls+lTuJDiSACGcxjwMjnapnz7MLUzjfgNSLB8itjpydopPmgd8+QQJrCHqzYZz6LS3RYtzZnoHBtHF24jDPEcq3Rn/lp59Nv18QcsihaD9mnik820FHEaWsEm4TjpO8vw7H/HU3rd7mUaZw+FHXC4nWc7hJO7a47UjqUJCPKLrJCl+5LJ+uPBd1LL4EqkcJbUNBZBRpdVdaq2uwbGt8/1LptphG/4MZ7c4uv2eeI/Mkzwn4k59oSJLPD7s8cnfGVEMIqszEe2MHhhoo3huMXaY6BflFYHWUf/k3Yuv9xCwr0lMrDd9Ggsnygle38DQ0bsq92+KTC4XhCrl8GuulEf5i8Xykcy7Ths7iqsGTm78pyrIndXGhMMFtLAC0DW4ek=
+  app: safe-spire-38976
+  on:
+    repo: rhondarobot/mongo-shoppinglist-2
